@@ -1,3 +1,4 @@
+mainFileName: processedGenshinDatamine #main name of the directory containing of all the extracted files
 parentDir: [ 
     "weapon",
     "character",
@@ -16,7 +17,6 @@ childDir: #child directory names
         "characterGrowthCurves",
         "characterAscensionBonus",
         ]
-    
 childFileNames: #child file names
     weapon: [
         "WeaponExcelConfigData",
