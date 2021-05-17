@@ -22,13 +22,9 @@ shutil.rmtree(baseFileName, ignore_errors=True)
 
 
 def configDirSystem(configFile):
-    directory = {}
+    directory = []
     for i in range(len(read_yaml(configFile)[parentDirKey])): #i wrote this 2 seconds ago and forgot how it works but it creates the directory system as a dictionary called directory
-        parentDir = read_yaml(configFile)[parentDirKey][i]
-        subDirectory = []
-        for j in range(len(read_yaml(configFile)[childeDirKey][read_yaml(configFile)[parentDirKey][i]])):
-            subDirectory.append(read_yaml(configFile)[childeDirKey][read_yaml(configFile)[parentDirKey][i]][j])
-        directory[parentDir] = subDirectory
+        directory.append(read_yaml(configFile)[parentDirKey][i])
     return(directory)
 #NOTE TO FUTURE ME: either create lists from this dictionary or alter your code createDirs slightly
 #this can be used to customise file names as well? (would have to change childDir to childFileNames)
@@ -47,9 +43,9 @@ def configFileSystem(configFile):
 def createDirs(dictionary):
     os.mkdir("./" + baseFileName)
     for i in range(len(dictionary)):
-        os.mkdir("./" + baseFileName + "/" + list(dictionary.keys())[i])
+        os.mkdir("./" + baseFileName + "/" + dictionary[i])
 
 
-#print(configFileSystem(configFileName))
+print(configDirSystem(configFileName))
 
 createDirs(configDirSystem(configFileName))
