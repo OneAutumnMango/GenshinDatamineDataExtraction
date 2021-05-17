@@ -5,13 +5,14 @@ def read_yaml(file_path):
     with open(file_path, "r") as f:
         return yaml.safe_load(f)
 
-baseFileName = "processedGenshinDatamine"
+
 configFileName = "config.yaml"
 
 configKeys = list(read_yaml(configFileName).keys()) #extracts the keys to the config dictionary
-parentDirKey = configKeys[0]
-childeDirKey = configKeys[1]
-childeFileNameKey = configKeys[2]
+baseFileName = read_yaml(configFileName)[configKeys[0]]
+parentDirKey = configKeys[1]
+childeDirKey = configKeys[2]
+childeFileNameKey = configKeys[3]
     
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
