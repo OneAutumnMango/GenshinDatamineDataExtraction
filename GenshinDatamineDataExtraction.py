@@ -13,10 +13,11 @@ baseFileName = read_yaml(configFileName)[configKeys[0]]
 parentDirKey = configKeys[1]
 childeDirKey = configKeys[2]
 childeFileNameKey = configKeys[3]
-    
+#there should be a better way to do this ^
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-import shutil # removes the folders this created from last time it ran just for ease while testing
+import shutil # removes the folders this created from last time it ran, so you can update shit
 shutil.rmtree(baseFileName, ignore_errors=True)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
@@ -26,8 +27,7 @@ def configDirSystem(configFile):
     for i in range(len(read_yaml(configFile)[parentDirKey])): #i wrote this 2 seconds ago and forgot how it works but it creates the directory system as a dictionary called directory
         directory.append(read_yaml(configFile)[parentDirKey][i])
     return(directory)
-#NOTE TO FUTURE ME: either create lists from this dictionary or alter your code createDirs slightly
-#this can be used to customise file names as well? (would have to change childDir to childFileNames)
+
 
 def configFileSystem(configFile):
     directory = {}
@@ -45,7 +45,5 @@ def createDirs(dictionary):
     for i in range(len(dictionary)):
         os.mkdir("./" + baseFileName + "/" + dictionary[i])
 
-
-print(configDirSystem(configFileName))
 
 createDirs(configDirSystem(configFileName))
