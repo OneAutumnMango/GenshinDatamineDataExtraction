@@ -46,3 +46,4 @@ else:
     print("No extra files found")
 print(datetime.now().time())
 print("\nFile Extraction Complete")
+input("\n\nPress Enter to Exit")
