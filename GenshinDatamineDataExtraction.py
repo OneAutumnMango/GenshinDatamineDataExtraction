@@ -11,8 +11,7 @@ configFileName = "config.yaml"
 configKeys = list(read_yaml(configFileName).keys()) #extracts the keys to the config dictionary
 baseFileName = read_yaml(configFileName)[configKeys[0]]
 parentDirKey = configKeys[1]
-childeDirKey = configKeys[2]
-childeFileNameKey = configKeys[3]
+childeFileNameKey = configKeys[2]
 #there should be a better way to do this ^
 
 
