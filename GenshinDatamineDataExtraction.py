@@ -1,5 +1,17 @@
 import os
-import yaml
+
+try:
+    import yaml
+except ModuleNotFoundError:
+    print("""
+        Error: ModuleNotFoundError
+
+        Please install PyYAML before trying again.
+
+        Enter "pip install PyYAML" into your command prompt
+    """)
+    input("\n\nPress Enter to Confirm and Exit")
+    exit()
 
 def read_yaml(file_path):
     with open(file_path, "r") as f:
