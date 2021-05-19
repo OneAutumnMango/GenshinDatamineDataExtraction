@@ -8,7 +8,7 @@ except ModuleNotFoundError:
 
         Please install PyYAML before trying again.
 
-        Enter "pip install PyYAML" into your command prompt
+        Enter "pip install PyYAML" into your command prompt.
     """)
     input("\n\nPress Enter to Confirm and Exit")
     exit()
