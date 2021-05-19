@@ -13,6 +13,18 @@ except ModuleNotFoundError:
     input("\n\nPress Enter to Confirm and Exit")
     exit()
 
+if os.path.exists("./config.yaml"):
+    pass
+else:
+    print("""
+        Error: FileNotFoundError
+
+        File "config.yaml" not found.
+        Please make sure to download "config.yaml" and place it in the same directory as this file before trying again.
+    """)
+    input("\n\nPress Enter to Confirm and Exit")
+    exit()
+
 def read_yaml(file_path):
     with open(file_path, "r") as f:
         return yaml.safe_load(f)
