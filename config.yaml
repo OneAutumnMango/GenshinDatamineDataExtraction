@@ -1,20 +1,39 @@
 mainFileName: processedGenshinDatamine #main name of the directory containing of all the extracted files
 parentDir: [ #even the "parentDir" and "childFileNames" can be changed
-    "weapon",
+    "weapon", #if changing these change the dictionary keys below too
     "character",
-#    "talent", 
-#    "artifact",
-#    "enemy"
+    "talent", 
+    "artifact",
+    "enemy"
     ]
 childFileNames: #child file names 
     weapon: [
         "WeaponExcelConfigData",
         "WeaponCurveExcelConfigData",
-        "WeaponPromoteExcelConfigData"
+        "WeaponPromoteExcelConfigData",
+        
+        "EquipAffixExcelConfigData" #weapons effects (arti set bonuses too)
         ]
     character: [
-        "AvatarExcelConfigData",
+        "AvatarExcelConfigData", #base stats
         "AvatarCurveExcelConfigData",
-        "AvatarPromoteExcelConfigData"
+        "AvatarPromoteExcelConfigData",
+         
+        "AvatarCodexExcelConfigData" #release dates to determine released characters
         ]
+    talent: [
+        "AvatarSkillExcelConfigData", #talents
+        "AvatarSkillDepotExcelConfigData", #ascension talents
+        "ProudSkillExcelConfigData", #talent multipliers
+        "AvatarTalentExcelConfigData" #constellations
+        ]
+    artifact: [
+        "ReliquaryLevelExcelConfigData", #mainstats
+        "ReliquaryAffixExcelConfigData" #substats
+        ]
+    enemy: [
+        "MonsterExcelConfigData", #mob list
+        "MonsterCurveExcelConfigData", #mob base stat scaling
+        ]
+    
 ...
