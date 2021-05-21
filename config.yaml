@@ -35,5 +35,19 @@ childFileNames: #child file names
         "MonsterExcelConfigData", #mob list
         "MonsterCurveExcelConfigData", #mob base stat scaling
         ]
+languageFiles:  #the ones not commented out will remain
+    TextCHS.json: True #Chinese Simplified
+    TextCHT.json: False #Chinese Traditional
+    TextDE.json: True #German
+    TextEN.json: True #English
+    TextES.json: False #Spanish
+    TextFR.json: False #French
+    TextID.json: False #Indonesian
+    TextJA.json: True #Japanese
+    TextKO.json: False #Korean
+    TextPT.json: False #Portuguese
+    TextRU.json: False #Russian
+    TextTH.json: False #Thai
+    TextVI.json: False #Vietnamese
     
 ...
