@@ -2,8 +2,13 @@ import urllib.request
 import zipfile
 import os
 import shutil
+import yaml
 
 from datetime import datetime
+
+def read_yaml(file_path):
+    with open(file_path, "r") as f:
+        return yaml.safe_load(f)
 
 def download():
     url = "https://github.com/Dimbreath/GenshinData/archive/refs/heads/master.zip"
@@ -50,13 +55,16 @@ def moveAndDelExtra():
         try:
             shutil.rmtree(".\DimbreathDatamine\ExcelBinOutput", ignore_errors=True)
             shutil.move(".\DimbreathDatamine\GenshinData-master\ExcelBinOutput",".\DimbreathDatamine")
+
+            shutil.rmtree(".\DimbreathDatamine\TextMap", ignore_errors=True)
+            shutil.move(".\DimbreathDatamine\GenshinData-master\TextMap",".\DimbreathDatamine")
         except:
             print(
 """Ignoring Errors AHHHHHHHHHHHHH!!!!!!!!!
             
 Lowkey though, run the file again to fix :).
             
-Error: shutil.Error:Destination not found.""")
+Error: shutil.Error: Destination not found.""")
             input("\n\nPress Enter to Exit")
             exit()
             
@@ -67,9 +75,24 @@ Error: shutil.Error:Destination not found.""")
     print(datetime.now().time())
     print("\nFile Extraction Complete!")
 
+def extractLang():
+    print("\nExtracting languages...")
+    print(datetime.now().time())
+
+    for lang in read_yaml("config.yaml")[list(read_yaml("config.yaml").keys())[3]].keys():
+        if not read_yaml("config.yaml")[list(read_yaml("config.yaml").keys())[3]][lang]:
+            path = ".\DimbreathDatamine\GenshinData-master\TextMap\%s" % lang
+            if os.path.exists(path):
+                os.remove(path)
+    
+    print("\nLanguages Extracted!")
+    print(datetime.now().time())
+        
+
 download()
 unzip()
 delZIP()
+extractLang()
 moveAndDelExtra()
 
 
